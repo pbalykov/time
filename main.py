@@ -17,9 +17,9 @@ class GovnoServer(http.server.BaseHTTPRequestHandler):
         if self.path == '/':
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
-            self.send_header('Content-Length', len(open(put(__file__) + 'skrip/часы.html','rb').read()))
+            self.send_header('Content-Length', len(open(put(__file__) + 'skrip/chat.html','rb').read()))
             self.end_headers()
-            self.wfile.write(open(put(__file__) + 'skrip/часы.html','rb').read())
+            self.wfile.write(open(put(__file__) + 'skrip/chat.html','rb').read())
 
 
 
