@@ -12,7 +12,7 @@ def put(self):
 
 
 
-class GovnoServer(http.server.BaseHTTPRequestHandler):
+class Server(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.send_response(200)
@@ -56,6 +56,6 @@ class ThreadingHTTPServer(socketserver.ThreadingMixIn,http.server.HTTPServer):
 
 
 if __name__ == '__main__':
-    http.server.HTTPServer(('', 17957), GovnoServer).serve_forever()
+    http.server.HTTPServer(('', 17957), Server).serve_forever()
  
 
