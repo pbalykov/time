@@ -10,8 +10,6 @@ function tim()
 	sob.innerHTML = a.join(':');
 	col.innerHTML = '#' + a.join('');
 	document.body.style.backgroundColor = "#" + a.join('');
-//	requestAnimationFrame(tim);
 }
 
-//tim();
 setInterval(tim, 4);
