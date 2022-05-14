@@ -11,8 +11,6 @@ class Server(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(open(self.pwd + 'skrip/chat.html','rb').read())
 
-
-
         elif self.path == '/chat.js':
               self.send_response(200)
               self.send_header('Content-Type', 'javascript/js; charset=utf-8')
@@ -28,24 +26,15 @@ class Server(http.server.BaseHTTPRequestHandler):
               self.wfile.write(open(self.pwd + 'skrip/chat.css','rb').read())
 
         else:
-                self.send_response(302)
-                self.send_header('Location', '/')
-                self.end_headers()
+              self.send_response(302)
+              self.send_header('Location', '/')
+              self.end_headers()
 
 
 
-
-
-
-
-
-
-
-class ThreadingHTTPServer(socketserver.ThreadingMixIn,http.server.HTTPServer):
+class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     pass
 
 
 if __name__ == '__main__':
-    http.server.HTTPServer(('', 17957), Server).serve_forever()
- 
-
+    ThreadingHTTPServer(('', 17957), Server).serve_forever()
