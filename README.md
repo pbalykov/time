@@ -5,9 +5,11 @@
 в папке **script** лежат три фаила 
 
 ```
-  chat.html 
-  chat.css 
-  chat.js 
+  script-
+  -| 
+   |-chat.html 
+   |-chat.css 
+   |-chat.js 
 ```
 в котрые лежит дезайн скелет и атоматическая работа часов.
 
