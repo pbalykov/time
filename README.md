@@ -6,7 +6,6 @@
 
 ```
   script-
-  -| 
    |-chat.html 
    |-chat.css 
    |-chat.js 
