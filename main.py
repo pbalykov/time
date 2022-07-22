@@ -1,8 +1,13 @@
 import http.server, socketserver
- 
+from sys import platform
+
+def pwd()->str:
+    if ( platform[:3] == "win" ) :
+        return '/'.join(tuple(i for i in __file__.split('\\')[:-1] if len(i.strip()))) 
+    return '/' + '/'.join(tuple(i for i in __file__.split('/')[:-1] if len(i.strip()))) 
 
 class Server(http.server.BaseHTTPRequestHandler):
-    pwd =  '/' + '/'.join(tuple(i for i in __file__.split('/') if i != '')[:-1]) + '/' 
+    pwd = pwd() + '/'
     def do_GET(self):
         if self.path == '/':
             self.send_response(200)
@@ -30,11 +35,8 @@ class Server(http.server.BaseHTTPRequestHandler):
               self.send_header('Location', '/')
               self.end_headers()
 
-
-
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     pass
-
 
 if __name__ == '__main__':
     ThreadingHTTPServer(('', 17957), Server).serve_forever()
